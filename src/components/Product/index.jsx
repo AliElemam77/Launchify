@@ -1,10 +1,11 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function index({ product }) {
   return (
-    <a
-      href="#"
-      className="group relative overflow-hidden border border-gray-100 bg-white h-[500px] rounded flex flex-col"
+    <NavLink
+      to={`/products/${product.id}`}
+      className="group drop-shadow-xl  relative overflow-hidden border border-gray-100 bg-white h-[500px] rounded-3xl flex flex-col"
     >
       <button className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
         <span className="sr-only">Wishlist</span>
@@ -61,7 +62,7 @@ function index({ product }) {
           </button>
         </form>
       </div>
-    </a>
+    </NavLink>
   );
 }
 

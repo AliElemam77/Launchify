@@ -1,18 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../redux/slice/productSlice";
+import { getProducts } from "../../redux/slice/allProductsSlice";
 import Product from "../../components/Product";
 
 function Products() {
-    
-    const dispatch = useDispatch();
-    const { products, loading, error } = useSelector((state) => state.products);
-    const skeletonArray = Array(products.length).fill(0);
+  const dispatch = useDispatch();
+  const { products, loading, error } = useSelector((state) => state.products);
+  const skeletonArray = Array(products.length).fill(0);
   useEffect(() => {
     dispatch(getProducts());
   }, []);
   return (
-    <div className="mt-20 mb-20 container">
+    <div className="mt-28 mb-20 container">
       {error && (
         <div className="mb-4 rounded bg-red-100 p-4 text-red-700 shadow">
           {error}

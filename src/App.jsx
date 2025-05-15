@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { RouterProvider } from "react-router-dom";
@@ -13,6 +12,7 @@ import { login } from "./redux/slice/authSlice";
 import { store } from "./redux/store";
 import Products from "./pages/Products/Products";
 // import About from "./pages/About/index";
+import ProductDetails from "./pages/ProductDetails/index";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "products",
         element: <Products />,
+      },
+      {
+        path: "products/:id",
+        element: <ProductDetails />,
       },
     ],
   },

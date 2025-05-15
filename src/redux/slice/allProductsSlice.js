@@ -17,7 +17,22 @@ export const getProducts = createAsyncThunk(
     return response.data;
   }
 );
-const productSlice = createSlice({
+const getProductDetails = createAsyncThunk(
+  "products/getProductDetails",
+  async (id) => {
+    const response = await axios.get(
+      `https://fakestoreapi.com/products/${id}`,
+      {
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+        },
+      }
+    );
+    return response.data;
+  }
+);
+
+const allProductSlice = createSlice({
   name: "Products",
   initialState: initialState,
   reducers: {},
@@ -39,4 +54,4 @@ const productSlice = createSlice({
   },
 });
 
-export default productSlice.reducer;
+export default allProductSlice.reducer;

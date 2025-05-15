@@ -10,11 +10,11 @@ function Layout() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname]);
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Navbar />
-      <div className="">
+      <main className="flex-1">
         <Outlet />
-      </div>
+      </main>
       <Footer />
     </div>
   );
