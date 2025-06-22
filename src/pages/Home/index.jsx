@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Products from "../../components/products";
 import landingImage from "../../assets/images/landing.jpg";
 import Timeline from "../../components/Timeline";
+import { getCartItems } from "../../redux/slice/cartSilce";
+import { useDispatch } from "react-redux";
 
 function Index() {
+ 
   return (
     <div className="landing px-3 md:px-0 ">
       <div className="shadow-xl hero flex h-screen rounded-s-3xl rounded-e-3xl overflow-hidden">

@@ -13,6 +13,7 @@ import { store } from "./redux/store";
 import Products from "./pages/Products/Products";
 // import About from "./pages/About/index";
 import ProductDetails from "./pages/ProductDetails/index";
+import Cart from "./pages/Cart/index";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "products/:id",
         element: <ProductDetails />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ],
   },

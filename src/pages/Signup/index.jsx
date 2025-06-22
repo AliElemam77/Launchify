@@ -39,6 +39,7 @@ function index() {
             },
           }
         );
+        // console.log(response);
         const userId = response.data.id;
         // console.log(response.data);
         localStorage.setItem("userId", userId);

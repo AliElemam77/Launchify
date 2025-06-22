@@ -2,11 +2,13 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getProductDetails } from "../../redux/slice/productDetailsSlice";
+import { addToCart, getCartItems } from "../../redux/slice/cartSilce";
 
 function ProductDetails() {
   const { id } = useParams();
   const dispatch = useDispatch();
 
+  const { cartItems } = useSelector((state) => state.cart);
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
   );
@@ -75,7 +77,15 @@ function ProductDetails() {
           </div>
 
           <div className="flex gap-4 pt-4">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded">
+            <button
+              onClick={() => {
+                dispatch(addToCart(product));
+                console.log(cartItems, "add to cartItems");
+                // dispatch(getCartItems());
+                // console.log(cartItems, "get cartItems");
+              }}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded"
+            >
               Add to Cart
             </button>
             <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded">
